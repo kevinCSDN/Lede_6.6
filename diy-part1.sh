@@ -13,7 +13,7 @@
 # Uncomment a feed source
 #sed -i '1i src-git kenzo https://github.com/kenzok8/openwrt-packages' feeds.conf.default
 
-rm -rf feeds/packages/net/{xray-core,v2ray-core,v2ray-geodata,sing-box}
+#rm -rf feeds/packages/net/{xray-core,v2ray-core,v2ray-geodata,sing-box}
 
 #克隆passwall环境插件
 git clone https://github.com/xiaorouji/openwrt-passwall-packages package/helloworld
