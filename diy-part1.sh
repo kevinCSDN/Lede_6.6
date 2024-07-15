@@ -15,13 +15,19 @@
 
 #rm -rf feeds/packages/net/{xray-core,v2ray-core,v2ray-geodata,sing-box}
 
+sed -i '1i src-git kenzo https://github.com/kenzok8/openwrt-packages' feeds.conf.default
+sed -i '2i src-git small https://github.com/kenzok8/small' feeds.conf.default
+./scripts/feeds update -a && rm -rf feeds/luci/applications/luci-app-mosdns && rm -rf feeds/packages/net/{alist,adguardhome,mosdns,smartdns}
+rm -rf feeds/packages/lang/golang
+git clone https://github.com/kenzok8/golang feeds/packages/lang/golang
+
 #克隆passwall环境插件
-git clone https://github.com/xiaorouji/openwrt-passwall-packages package/helloworld
+#git clone https://github.com/xiaorouji/openwrt-passwall-packages package/helloworld
 #git clone --depth=1 -b 18.06 https://github.com/kiddin9/luci-theme-edge package/luci-theme-edge
 #git clone --depth=1 https://github.com/derisamedia/luci-theme-alpha package/luci-theme-alpha
 #克隆的源码放在small文件夹,预先建立small文件夹
-mkdir package/small
-pushd package/small
+#mkdir package/small
+#pushd package/small
 
 #克隆源码
 #删除feeds自带mosdns、v2ray-geodata
@@ -41,4 +47,4 @@ git clone -b main --depth 1 https://github.com/bcseputetto/openwrt-passwall.git
 #git clone --depth=1 https://github.com/fw876/helloworld.git
 #git clone --depth=1 -b 18.06 https://github.com/jerrykuku/luci-theme-argon package/luci-theme-argon
 #git clone --depth=1 -b 18.06 https://github.com/jerrykuku/luci-app-argon-config package/luci-app-argon-config
-popd
+#popd
